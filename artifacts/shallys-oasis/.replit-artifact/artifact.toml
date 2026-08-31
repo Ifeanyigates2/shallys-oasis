@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Shally's Oasis"
+description = "A polished, mobile-first storefront website for Shally's Oasis, a Lagos gadget and accessories retailer. Showcases phones, laptops, smart gadgets and accessories, with direct WhatsApp and phone ordering paths."
+version = "1.0.0"
+id = "artifacts/shallys-oasis"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23377
+
+[services.development]
+run = "pnpm --filter @workspace/shallys-oasis run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/shallys-oasis", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/shallys-oasis/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23377"
+BASE_PATH = "/"
