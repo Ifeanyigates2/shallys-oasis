@@ -3,22 +3,26 @@ import {
   ArrowUpRight,
   ChevronRight,
   Clock3,
-  Headphones,
-  Laptop,
+  Facebook,
+  Instagram,
   MapPin,
   Menu,
   MessageCircle,
   Phone,
   ShieldCheck,
-  Smartphone,
   Wrench,
   X,
+  Youtube,
 } from 'lucide-react';
-import promoThankYou from '@assets/SHALLY_2_1788203591433.jpeg';
-import promoNewWeek from '@assets/SHALLY_3_1788203591436.jpeg';
+import promoThankYou from '@assets/promo-thank-you.png';
+import promoNewWeek from '@assets/promo-new-week.png';
+import promoNewArrivals from '@assets/promo-new-arrivals.png';
 import brandLogo from '@assets/SHALLY_1788203591437.png';
 
 const contactNumber = '+234 808 789 0587';
+const contactNumberAlt = '+234 907 040 6967';
+const instagramHref = 'https://www.instagram.com/shallysoasisgadgets/';
+const socialHubHref = 'https://linktr.ee/shallyoasis';
 const whatsappHref =
   'https://wa.me/2348087890587?text=Hello%20Shally%27s%20Oasis%2C%20I%27d%20like%20to%20order%20a%20gadget.';
 
@@ -66,7 +70,7 @@ function App() {
   return (
     <div className="site-wrap noise">
       <div className="top-strip" data-testid="announcement-bar">
-        Lagos&apos; trusted gadget stop · online ordering open
+        Lagos&apos; trusted gadget stop · new arrivals just dropped
       </div>
 
       <header className={`site-nav ${mobileOpen ? 'nav-mobile-open' : ''}`}>
@@ -75,6 +79,7 @@ function App() {
             <Wordmark />
           </a>
           <nav className="nav-links" aria-label="Main navigation">
+            <a className="nav-link" href="#now-on" onClick={closeMobile} data-testid="link-nav-now-on">Now on</a>
             <a className="nav-link" href="#what-we-do" onClick={closeMobile} data-testid="link-nav-what-we-do">What we do</a>
             <a className="nav-link" href="#the-oasis" onClick={closeMobile} data-testid="link-nav-the-oasis">The Oasis</a>
             <a className="nav-link" href="#how-to-buy" onClick={closeMobile} data-testid="link-nav-how-to-buy">How to buy</a>
@@ -102,18 +107,18 @@ function App() {
         <section className="hero">
           <div className="container-wide hero-grid">
             <div className="hero-copy">
-              <div className="eyebrow hero-kicker reveal">Your next device, closer than you think</div>
+              <div className="eyebrow hero-kicker reveal">It&apos;s a new week</div>
               <h1 className="display-xl hero-title reveal reveal-delay-1">
-                More than<br /><span className="yellow">just sales.</span>
+                New arrivals<br /><span className="yellow">just dropped.</span>
               </h1>
               <p className="body-lg hero-sub reveal reveal-delay-2">
-                Original phones, laptops, gadgets and accessories — with the warm, plugged-in service that keeps Lagos moving.
+                Great deals. Top brands. Smart savings. The latest iPhones, Samsungs and must-have accessories are here.
               </p>
               <div className="cta-row reveal reveal-delay-3">
                 <a className="btn btn-primary" href={whatsappHref} target="_blank" rel="noreferrer" data-testid="link-hero-whatsapp">
                   Order on WhatsApp <ArrowUpRight size={16} />
                 </a>
-                <a className="btn btn-ghost" href="#what-we-do" data-testid="link-hero-explore">
+                <a className="btn btn-ghost" href="#now-on" data-testid="link-hero-explore">
                   Explore the Oasis <ChevronRight size={16} />
                 </a>
               </div>
@@ -123,10 +128,10 @@ function App() {
               </div>
             </div>
 
-            <div className="hero-visual reveal reveal-delay-2" aria-label="Shally's Oasis new week feature">
+            <div className="hero-visual reveal reveal-delay-2" aria-label="Shally's Oasis new arrivals feature">
               <div className="orbit" aria-hidden="true" />
               <div className="promo-card">
-                <img src={promoNewWeek} alt="Shally's Oasis new week promotional artwork" />
+                <img src={promoNewArrivals} alt="New arrivals just dropped at Shally's Oasis" />
               </div>
               <div className="visual-tag">
                 <strong>01</strong>
@@ -145,12 +150,16 @@ function App() {
         <div className="ticker" aria-label="Shally's Oasis services">
           <div className="ticker-track">
             <div className="ticker-item">Phones</div>
+            <div className="ticker-item">Watches</div>
+            <div className="ticker-item">Audio &amp; more</div>
             <div className="ticker-item">Laptops</div>
             <div className="ticker-item">Smart gadgets</div>
             <div className="ticker-item">Accessories</div>
             <div className="ticker-item">Repairs</div>
             <div className="ticker-item">Online ordering</div>
             <div className="ticker-item">Phones</div>
+            <div className="ticker-item">Watches</div>
+            <div className="ticker-item">Audio &amp; more</div>
             <div className="ticker-item">Laptops</div>
             <div className="ticker-item">Smart gadgets</div>
             <div className="ticker-item">Accessories</div>
@@ -158,6 +167,61 @@ function App() {
             <div className="ticker-item">Online ordering</div>
           </div>
         </div>
+
+        <section id="now-on" className="campaigns section-pad">
+          <div className="container-wide">
+            <div className="section-intro reveal">
+              <div>
+                <div className="eyebrow section-label">Now on</div>
+                <h2 className="display-lg">This week at<br />the Oasis.</h2>
+              </div>
+              <p>
+                Great deals. Top brands. Smart savings. New arrivals, weekly offers, and a thank you to everyone who sends a friend our way.
+              </p>
+            </div>
+            <div className="campaign-grid">
+              <article className="campaign-card reveal">
+                <div className="campaign-frame">
+                  <img src={promoNewArrivals} alt="New arrivals just dropped at Shally's Oasis" />
+                </div>
+                <div className="campaign-copy">
+                  <span className="eyebrow">Fresh in</span>
+                  <h3>New arrivals just dropped</h3>
+                  <p>The latest iPhones, Samsungs and must-have accessories are here. Phones, watches, audio and more.</p>
+                  <a className="campaign-link" href={whatsappHref} target="_blank" rel="noreferrer" data-testid="link-campaign-arrivals">
+                    Ask about what&apos;s in <ArrowUpRight size={15} />
+                  </a>
+                </div>
+              </article>
+              <article className="campaign-card reveal reveal-delay-1">
+                <div className="campaign-frame">
+                  <img src={promoNewWeek} alt="It's a new week at Shally's Oasis Gadgets" />
+                </div>
+                <div className="campaign-copy">
+                  <span className="eyebrow">Weekly deals</span>
+                  <h3>It&apos;s a new week</h3>
+                  <p>Brand-new iPhones and Samsungs, plus laptops built for top performance. Only at Shally&apos;s Oasis Gadgets.</p>
+                  <a className="campaign-link" href={whatsappHref} target="_blank" rel="noreferrer" data-testid="link-campaign-week">
+                    See this week&apos;s deals <ArrowUpRight size={15} />
+                  </a>
+                </div>
+              </article>
+              <article className="campaign-card reveal reveal-delay-2">
+                <div className="campaign-frame">
+                  <img src={promoThankYou} alt="Thank you for your referrals to Shally's Oasis" />
+                </div>
+                <div className="campaign-copy">
+                  <span className="eyebrow">Daalu E Seun</span>
+                  <h3>Thank you for the referrals</h3>
+                  <p>Your referrals power our growth. We&apos;re truly grateful — Naija&apos;s first choice for gadgets and accessories.</p>
+                  <a className="campaign-link" href={whatsappHref} target="_blank" rel="noreferrer" data-testid="link-campaign-thanks">
+                    Send a friend our way <ArrowUpRight size={15} />
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
 
         <section id="what-we-do" className="categories section-pad">
           <div className="container-wide">
@@ -200,9 +264,9 @@ function App() {
           <div className="container-wide editorial-grid">
             <div className="editorial-copy reveal">
               <div className="eyebrow">02 / The Oasis</div>
-              <h2 className="display-lg">Nigeria&apos;s first choice for gadgets &amp; accessories.</h2>
+              <h2 className="display-lg">Daalu E Seun.<br />Thank you.</h2>
               <p>
-                A confident place to ask the practical questions, make a clear choice and get on with your day. Online or in-store, the conversation starts with what you need.
+                Naija&apos;s first choice for gadgets and accessories. Your referrals power our growth — we&apos;re truly grateful, and always here for the next device, the next question, the next friend you send our way.
               </p>
               <a className="btn btn-primary" href={whatsappHref} target="_blank" rel="noreferrer" data-testid="link-oasis-whatsapp">
                 Start a conversation <MessageCircle size={16} />
@@ -210,10 +274,10 @@ function App() {
             </div>
             <div className="artwork-stack reveal reveal-delay-1">
               <div className="artwork artwork-one">
-                <img src={promoThankYou} alt="Shally's Oasis referral thank-you promotional artwork" />
+                <img src={promoThankYou} alt="Thank you for your referrals to Shally's Oasis" />
               </div>
               <div className="artwork artwork-two">
-                <img src={promoNewWeek} alt="Shally's Oasis new week promotional artwork" />
+                <img src={promoNewWeek} alt="It's a new week at Shally's Oasis Gadgets" />
               </div>
             </div>
           </div>
@@ -315,6 +379,17 @@ function App() {
                   </div>
                 </div>
                 <div className="detail">
+                  <Phone size={19} />
+                  <div>
+                    <strong>Call or WhatsApp</strong>
+                    <span>
+                      <a href={`tel:${contactNumber.replace(/\s/g, '')}`}>{contactNumber}</a>
+                      <br />
+                      <a href={`tel:${contactNumberAlt.replace(/\s/g, '')}`}>{contactNumberAlt}</a>
+                    </span>
+                  </div>
+                </div>
+                <div className="detail">
                   <Clock3 size={19} />
                   <div>
                     <strong>Public listing hours</strong>
@@ -348,6 +423,7 @@ function App() {
             <div>
               <h4>Explore</h4>
               <div className="footer-links">
+                <a href="#now-on" data-testid="link-footer-now-on">Now on</a>
                 <a href="#what-we-do" data-testid="link-footer-what-we-do">What we do</a>
                 <a href="#the-oasis" data-testid="link-footer-oasis">The Oasis</a>
                 <a href="#how-to-buy" data-testid="link-footer-how-to-buy">How to buy</a>
@@ -358,14 +434,27 @@ function App() {
               <h4>Talk to us</h4>
               <div className="footer-links">
                 <a href={`tel:${contactNumber.replace(/\s/g, '')}`} data-testid="link-footer-call">{contactNumber}</a>
+                <a href={`tel:${contactNumberAlt.replace(/\s/g, '')}`} data-testid="link-footer-call-alt">{contactNumberAlt}</a>
                 <a href={whatsappHref} target="_blank" rel="noreferrer" data-testid="link-footer-whatsapp">WhatsApp ordering</a>
-                <a href="https://linktr.ee/shallyoasis" target="_blank" rel="noreferrer" data-testid="link-footer-linktree">Linktree</a>
+                <a href={instagramHref} target="_blank" rel="noreferrer" data-testid="link-footer-instagram">@shallysoasisgadgets</a>
+                <a href={socialHubHref} target="_blank" rel="noreferrer" data-testid="link-footer-linktree">Linktree</a>
+              </div>
+              <div className="footer-social">
+                <a href={instagramHref} target="_blank" rel="noreferrer" aria-label="Instagram" data-testid="link-footer-social-instagram">
+                  <Instagram size={16} />
+                </a>
+                <a href={socialHubHref} target="_blank" rel="noreferrer" aria-label="Facebook" data-testid="link-footer-social-facebook">
+                  <Facebook size={16} />
+                </a>
+                <a href={socialHubHref} target="_blank" rel="noreferrer" aria-label="YouTube" data-testid="link-footer-social-youtube">
+                  <Youtube size={16} />
+                </a>
               </div>
             </div>
           </div>
           <div className="footer-bottom">
             <span>© Shally&apos;s Oasis · Ikeja Lagos</span>
-            <span>Phones · laptops · gadgets · accessories · repairs</span>
+            <span>Phones · watches · audio · laptops · gadgets · accessories · repairs</span>
           </div>
         </div>
       </footer>
